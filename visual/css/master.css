@@ -13,6 +13,12 @@ h1 {
     font-size: 50px;
 }
 
+/* Helpers */
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Content */
 
@@ -27,7 +33,7 @@ h1 {
 
 header {
     margin-bottom: 30px;
-    color: #f2870a;
+    color: #ffffff;
 }
 
 #random-article {
@@ -46,6 +52,11 @@ header {
 
 
 /* Expanding Search */
+
+#exp-search {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
 
 input {
     outline: none;
@@ -82,10 +93,10 @@ input[type=search]:focus {
     padding-left: 32px;
     color: #000;
     background-color: #fff;
-    border-color: #f2870a;
-    -webkit-box-shadow: 0 0 5px rgba(246, 186, 95, 0.5);
-    -moz-box-shadow: 0 0 5px rgba(246, 186, 95, 0.5);
-    box-shadow: 0 0 5px rgba(246, 186, 95, 0.5);
+    border-color: #eeeeee;
+    -webkit-box-shadow: 0 0 5px rgba(116, 116, 116, 0.5);
+    -moz-box-shadow: 0 0 5px rgba(116, 116, 116, 0.5);
+    box-shadow: 0 0 5px rgba(116, 116, 116, 0.5);
     cursor: auto;
 }
 
@@ -100,17 +111,3 @@ input:-moz-placeholder {
 input::-webkit-input-placeholder {
     color: transparent;
 }
-
-
-/* Helpers */
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-/* Content */
-
-
-/* Animations */
