@@ -55,12 +55,15 @@
                         </div>
                     </section>
                 </section>
-                <section class="row search">
+                <section class="row search-container">
                     <section class="col-xs-10 col-xs-offset-1">
-                        <div id="search-icon">
-                            <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+                        <div id="exp-search" class="exp-search">
+                            <form>
+                                <input class="exp-search-input" onkeyup="buttonUp();" placeholder="Enter your search term..." onblur="monkey();" type="search" value="" name="search" id="exp-search">
+                                <input class="exp-search-btn" type="submit" value="">
+                                <span class="exp-search-icon"><i class="fa fa-search fa-3x" aria-hidden="true"></i></span>
+                            </form>
                         </div>
-                        <div id="search-field"></div>
                         <p>Click icon to search</p>
                     </section>
                 </section>
