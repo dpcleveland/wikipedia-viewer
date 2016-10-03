@@ -44,116 +44,82 @@ header {
     text-decoration: none;
 }
 
-.exp-search {
-    position: relative;
-    margin-top: 20px;
-    width: 0%;
-    min-width: 50px;
-    height: 50px;
-    float: right;
-    overflow: hidden;
-    -webkit-transition: width 0.3s;
-    -moz-transition: width 0.3s;
-    transition: width 0.3s;
-    -webkit-backface-visibility: hidden;
+
+/* Expanding Search */
+
+input {
+    outline: none;
 }
 
-.exp-search-input {
-    background: #ffffff none repeat scroll 0 0;
-    border: medium none;
-    color: #f2870a;
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
     font-family: inherit;
-    font-size: 20px;
-    height: 50px;
-    margin: 0;
-    outline: medium none;
-    padding: 0 2%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-    z-index: 10;
+    font-size: 100%;
 }
 
-input[type="search"].exp-search-input {
-    -webkit-appearance: none;
-    -webkit-border-radius: 0px;
+input::-webkit-search-decoration, input::-webkit-search-cancel-button {
+    display: none;
 }
 
-.exp-search-input::-webkit-input-placeholder {
-    color: #f2870a;
+input[type=search] {
+    background: #f2870a url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 55px;
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
 }
 
-.exp-search-input:-moz-placeholder {
-    color: #f2870a;
+input[type=search]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #66CC75;
+    -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5);
 }
 
-.exp-search-input::-moz-placeholder {
-    color: #f2870a;
+input:-moz-placeholder {
+    color: #999;
 }
 
-.exp-search-input:-ms-input-placeholder {
-    color: #f2870a;
+input::-webkit-input-placeholder {
+    color: #999;
 }
 
-.exp-search-icon, .exp-search-btn {
-    width: 50px;
-    height: 50px;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    line-height: 50px;
-    text-align: center;
+
+/* Demo 2 */
+
+#demo-2 input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
     cursor: pointer;
 }
 
-.exp-search-icon {
-    color: #fff;
-    background: #f2870a;
-    z-index: 90;
-    font-size: 22px;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
+#demo-2 input[type=search]:hover {
+    background-color: #fff;
 }
 
-.exp-search-btn {
-    background: #fff;
-    /* IE needs this */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    /* IE 8 */
-    filter: alpha(opacity=0);
-    /* IE 5-7 */
-    opacity: 0;
+#demo-2 input[type=search]:focus {
+    width: 130px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}
+
+#demo-2 input:-moz-placeholder {
     color: transparent;
-    color: #f2870a;
-    border: none;
-    outline: none;
-    z-index: -1;
 }
 
-.exp-search-icon:before {
-    content: "";
-}
-
-.exp-search.exp-search-open, .no-js .exp-search {
-    width: 100%;
-}
-
-.exp-search.exp-search-open .exp-search-icon, .no-js .exp-search .exp-search-icon {
-    background: #f2870a;
-    color: #ffffff;
-    z-index: 11;
-}
-
-.exp-search.exp-search-open .exp-search-btn, .no-js .exp-search .exp-search-btn {
-    /*    z-index: 90;*/
+#demo-2 input::-webkit-input-placeholder {
+    color: transparent;
 }
 
 
