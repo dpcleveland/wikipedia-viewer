@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Search form
     var searchForm = document.getElementById('exp-search');
 
-    searchForm.onsubmit = function() {
+    searchForm.onsubmit = function(e) {
+        // Prevent form default submit behavior
+        // http://forum.freecodecamp.com/t/issues-with-wikipedia-api-request-solved/40926/2
+        e.preventDefault();
+
         // User's Search Query
         var userSearch = document.getElementsByName('search')[0].value;
         console.log('userSearch: ' + userSearch);
@@ -22,16 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function getWikipediaResults() {
             $.ajax({
-                    type: 'GET',
-                    url: wikipediaAPIURL,
-                    dataType: "jsonp",
-                })
-                .done(function(res) {
-                    console.log(res);
-                })
-                .fail(function(err) {
-                    console.log('Error: ' + err.status);
-                });
+                type: 'GET',
+                url: wikipediaAPIURL,
+                dataType: "jsonp",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function() {
+                    alert('Error retrieving search results, please try again later');
+                }
+            });
         }
         getWikipediaResults();
     };
