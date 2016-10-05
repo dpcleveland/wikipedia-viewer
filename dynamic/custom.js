@@ -21,25 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('wikipediaAPIURL: ' + wikipediaAPIURL);
 
         function getWikipediaResults() {
-            var request = new XMLHttpRequest();
-            request.open('GET', wikipediaAPIURL, true);
-
-            request.onload = function() {
-                if (request.status >= 200 && request.status < 400) {
-                    console.log('JSON request success');
-                    var data = JSON.parse(request.responseText);
-                } else {
-                    console.log('We reached our target server, but it returned an error');
-
-                }
-            };
-
-            request.onerror = function() {
-                console.log('There was a connection error of some sort');
-                alert('Please try again later');
-            };
-
-            request.send();
+            $.ajax({
+                    type: 'GET',
+                    url: wikipediaAPIURL,
+                    dataType: "jsonp",
+                })
+                .done(function(res) {
+                    console.log(res);
+                })
+                .fail(function(err) {
+                    console.log('Error: ' + err.status);
+                });
         }
         getWikipediaResults();
     };
