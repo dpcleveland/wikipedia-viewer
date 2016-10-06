@@ -5,8 +5,8 @@ body {
     font-weight: 400;
     text-align: center;
     font-size: 20px;
-    color: #ffffff;
-    background-color: #0073A5;
+    color: #222222;
+    background-color: #ffffff;
 }
 
 h1 {
@@ -24,16 +24,19 @@ h1 {
 
 .content {}
 
-.vertical-center {
+#vertical-center {
     min-height: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
+    -webkit-transition: all .75s;
+    -moz-transition: all .75s;
+    transition: all .75s;
 }
 
 header {
     margin-bottom: 30px;
-    color: #ffffff;
+    color: #222222;
 }
 
 #random-article {
@@ -41,15 +44,46 @@ header {
 }
 
 #random-article a {
-    color: #ffffff;
+    color: #222222;
     text-decoration: none;
 }
 
 #random-article a:hover {
-    color: #eeeeee;
+    color: #666666;
     text-decoration: none;
 }
 
+.search-results {
+    margin-bottom: 50px;
+}
+
+.single-result-holder {
+    margin-top: 20px;
+    border: 1px solid #222222;
+    padding: 15px;
+    background-color: #eeeeee;
+    color: #222222;
+    border-left: 5px solid #000000;
+    text-align: left;
+    font-size: 18px;
+}
+
+.single-result-holder a {
+    color: #222222;
+}
+
+.single-result-holder a:hover {
+    text-decoration: none;
+    color: #666666;
+}
+
+.result-title {
+    font-size: 26px;
+}
+
+.result-description {
+
+}
 
 /* Expanding Search */
 
@@ -82,9 +116,9 @@ input[type=search] {
     -webkit-border-radius: 10em;
     -moz-border-radius: 10em;
     border-radius: 10em;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
+    -webkit-transition: all .75s;
+    -moz-transition: all .75s;
+    transition: all .75s;
     cursor: pointer;
 }
 

@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var wikipediaAPIURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + finalSearchValue + '&namespace=0&limit=10&profile=fuzzy&utf8=1';
         console.log('wikipediaAPIURL: ' + wikipediaAPIURL);
 
+        // Clear previous search results
+        var resultsHolder = document.getElementById('results');
+        resultsHolder.innerHTML = "";
+
         function getWikipediaResults(searchURL) {
             // Vanilla JavaScript AJAX call doesn't work with Wikipedia's API
             // So have to use jQuery
@@ -42,10 +46,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function updateUI(data) {
             console.log(data);
+
+            // Move existing content (H1, search form) up visually
+            var existingContent = document.getElementById('vertical-center');
+            existingContent.style.minHeight = '30px';
+
+            // Setup vars for data in the array from API
+            var dataQuantity = data[1].length;
+
+            // Build template function that adds HTML elements for each result
+            function displayHTML(title, description, url) {
+                resultsHolder.innerHTML += '<div class="single-result-holder"><a href="' + url + '" target="_blank"><div class="result-title">' + title + '</div>' + '<div class="result-description">' + description + '... (click to learn more)</div></a></div>';
+            }
+
+            function displayNoResults() {
+                resultsHolder.innerHTML = 'Sorry, there are no results for your search. Please try again.';
+            }
+
+            // Loop through for each data result, placeholder if 0 results
+            if (dataQuantity === 0) {
+                displayNoResults();
+            } else {
+                for (var i = 0; i < dataQuantity; i++) {
+                    var resultTitle = data[1][i];
+                    var resultDescription = data[2][i];
+                    var resultLink = data[3][i];
+
+                    displayHTML(resultTitle, resultDescription, resultLink);
+                }
+            }
         }
-
-
         getWikipediaResults(wikipediaAPIURL);
     };
-
 });
